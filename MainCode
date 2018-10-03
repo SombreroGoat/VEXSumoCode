@@ -112,14 +112,20 @@ task main() {
   {
     if (SensorValue[sonar]<50)
     {
-      motor[left] = 50;
-      motor[right] = 50;
+      motor[frontM]  = 127;
+      motor[insideLM]  = 127;
+      motor[insideRM]  = 127;
+      motor[outsideLM]  = 127;
+      motor[outsideRM] = 127;
     }
 
     else
     {
-      motor[left] = 50;                                      //Turns in place while it searches for the opponent
-      motor[right] = -50;
+      motor[frontM]  = 0;
+      motor[insideLM]  = 30;
+      motor[insideRM]  = -30;
+      motor[outsideLM]  = 30;
+      motor[outsideRM] = -30;
      }
      wait1Msec(10);
     }
