@@ -98,3 +98,29 @@ task main() {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+  while(true)
+  {
+    if (SensorValue[sonar]<50)
+    {
+      motor[left] = 50;
+      motor[right] = 50;
+    }
+
+    else
+    {
+      motor[left] = 50;                                      //Turns in place while it searches for the opponent
+      motor[right] = -50;
+     }
+     wait1Msec(10);
+    }
+  }
