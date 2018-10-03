@@ -36,9 +36,31 @@ task main() {
   
   while(true) {
   	
-  	//LOOR FOR THE OTHER ROBOT
+  	//LOOR FOR THE OTHER ROBOT + ROBOT BEGONE
   
-  
+  while(true)
+  {
+    if (SensorValue[rasputin] < 50)
+    {
+      motor[frontM]  = 127;
+      motor[insideLM]  = 127;
+      motor[insideRM]  = 127;
+      motor[outsideLM]  = 127;
+      motor[outsideRM] = 127;
+    }
+
+    else
+    {
+      motor[frontM]  = 0;
+      motor[insideLM]  = 30;
+      motor[insideRM]  = -30;
+      motor[outsideLM]  = 30;
+      motor[outsideRM] = -30;
+     }
+     wait1Msec(10);
+    }
+  }
+
   
   
   
@@ -105,28 +127,3 @@ task main() {
 
 
 
-
-
-
-  while(true)
-  {
-    if (SensorValue[sonar]<50)
-    {
-      motor[frontM]  = 127;
-      motor[insideLM]  = 127;
-      motor[insideRM]  = 127;
-      motor[outsideLM]  = 127;
-      motor[outsideRM] = 127;
-    }
-
-    else
-    {
-      motor[frontM]  = 0;
-      motor[insideLM]  = 30;
-      motor[insideRM]  = -30;
-      motor[outsideLM]  = 30;
-      motor[outsideRM] = -30;
-     }
-     wait1Msec(10);
-    }
-  }
