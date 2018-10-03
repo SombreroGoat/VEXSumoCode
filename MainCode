@@ -98,3 +98,33 @@ task main() {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+  while(true)
+  {
+    if (SensorValue[rasputin]<50)
+    {
+      motor[insideLeftMotor] = 50;
+      motor[outsideLeftMotor] = 50;
+      motor[insideRightMotor] = 50;
+      motor[outsideRightMotor] = 50;
+    }
+
+    else
+    {
+      motor[insideLeftMotor] = 50;                                      //Turns in place while it searches for the opponent
+     motor[outsideLeftMotor] = 50;
+     motor[insideRightMotor] = -50;
+     motor[outsideRightMotor] = -50;
+     }
+     wait1Msec(10);
+    }
+  }
