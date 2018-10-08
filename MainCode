@@ -3,7 +3,7 @@
 #pragma config(Sensor, in3,    RIGHT,          sensorLineFollower)
 #pragma config(Sensor, in5,    BACK,           sensorLineFollower)
 #pragma config(Sensor, dgtl1,  stalin,         sensorTouch)
-#pragma config(Sensor, dgtl3,  Rasputin,       sensorSONAR_cm)
+#pragma config(Sensor, dgtl3,  Rasputin,       sensorSONAR_inch)
 #pragma config(Motor,  port3,           insideLM,      tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port4,           insideRM,      tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port5,           outsideLM,     tmotorVex393_MC29, openLoop, reversed)
@@ -25,76 +25,65 @@
 \*----------------------------------------------------------------------------------------------------*/
 
 
-//+++++++++++++++++++++++++++++++++++++++++++++| MAIN |+++++++++++++++++++++++++++++++++++++++++++++++
-task main() {
+//+++++++++++++++++++++++++++++++++++++++++++++| MAIN |+++++++++++++++++++++++++++++++++++++++++++++++\\
+
+  task main ()
+{
 
 	untilTouch(stalin);
 
-  wait1Msec(2000);          // The program waits for 2000 milliseconds before continuing.
-  
-//ALL CODE BELOW IF FOR BUMPING PEOPLE OUT OF THE RING
-  
-  while(true) {
-  	
-  	//LOOR FOR THE OTHER ROBOT
-  
-  
-  
-  
-  
+	  int threshold = ;
+	  
+	  while(true) {
+	  	//go forwards code
+  	while(true) {
+		motor(insideLM) = 127; // Move forward at speed 127.
+		motor(outsideLM) = 127;
+		motor(insideRM) = 127;
+		motor(outsideRM) = 127;
+		motor(frontM) = 127;
+}
 
-  
-  
-//ALL CODE BELOW UNTIL END COMMENT IS FOR NOT GETTING ZOOPED OUT OF THE RING
-
-  while(true) {
-  	
-  int threshold = 2600;
    // CENTER sensor sees dark:
     if(SensorValue(CENTER) > threshold)
     {
       // counter-move forwards
-      motor[frontM]  = -30;
-      motor[insideLM]  = -30;
-      motor[insideRM]  = -30;
-      motor[outsideLM]  = -30;
-      motor[outsideRM] = -30;
+      motor[frontM]  = -50;
+      motor[insideLM]  = -50;
+      motor[insideRM]  = -50;
+      motor[outsideLM]  = -50; //working
+      motor[outsideRM] = -50;
     }
 
     // LEFT sensor sees dark:
-    if(SensorValue(LEFT) > threshold)
-    {
+    if(SensorValue(LEFT) > threshold)	{
       // counter-steer to the right:
       motor[frontM]  = 0;
-      motor[insideLM]  = 30;
-      motor[insideRM] = -30;
-      motor[outsideLM]  = 30;
-      motor[outsideRM] = -30;
+      motor[insideLM]  = 50;
+      motor[insideRM] = -50;
+      motor[outsideLM]  = 50;
+      motor[outsideRM] = -50;
     }
     // RIGHT sensor sees dark:
-    if(SensorValue(RIGHT) > threshold)
-    {
+    if(SensorValue(RIGHT) > threshold)	{
       // counter-steer to the left:
       motor[frontM]  = 0;
-      motor[insideLM]  = -30;
-      motor[insideRM]  = 30;
-      motor[outsideLM]  = -30;
-      motor[outsideRM] = 30;
+      motor[insideLM]  = -50;
+      motor[insideRM]  = 50;
+      motor[outsideLM]  = -50;
+      motor[outsideRM] = 50;
+    }
           // RIGHT sensor sees dark:
-    if(SensorValue(BACK) > threshold)
-    {
+    if(SensorValue(BACK) > threshold)	{
       // counter-move forwards:
-      motor[frontM]  = 30;
-      motor[insideLM]  = 30;
-      motor[insideRM]  = 30;
-      motor[outsideLM]  = 30;
-      motor[outsideRM] = 30;
-      
-      // END OF ZOOP-RESIST CODE
-      
-
-  			}
-			}
-		}
-	}
+      motor[frontM]  = 50;
+      motor[insideLM]  = 50;
+      motor[insideRM]  = 50;
+      motor[outsideLM]  = 50;
+      motor[outsideRM] = 50;
+    }
+  }
 }
+      //END OF ZOOP-RESIST CODE
+	
+//+++++++++++++++++++++++++++++++++++++++++++++| MAIN |+++++++++++++++++++++++++++++++++++++++++++++++\\
